@@ -1,0 +1,189 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Jun 23, 2017, 1:04:26 PM
+    Author     : mulu17
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+
+body{
+    background: skyblue;
+    
+}
+.menubar{
+    width: 1000px;
+    height: 50px;
+    background:darkblue; 
+}
+#menu li{
+    list-style: none;
+    display: inline;
+}
+#menu a{
+    text-decoration: none;
+    color:white;
+    padding:8px;
+    margin: 5px;
+    font-size: 18px;
+    font-family: COMIC SANS MS;
+}
+#menu a:hover{
+    
+    color:orange;
+    font-weight: bolder;
+    text-decoration: underline;
+}
+#menu{
+    padding:0;
+    margin:0;
+    line-height: 35px; 
+    float: left;
+}
+#form{
+    float:right;
+    padding:8px;
+    line-height: 30px; 
+}
+.main-wrapper{
+    width: 1000px;
+    height: auto;
+    margin:auto;
+    background: lightslategrey;
+}
+.header{
+    width:1000px;
+    height: 100px;
+    
+}
+.image-logo{
+    width: 1000px;
+    height: 50px;
+}
+#logo{
+    float: left;
+}
+#banner{
+    float:right;
+}
+.main-content{
+    width:1000px;
+    height: 800px;
+    margin: auto;
+    
+}
+img{
+    width:50px;
+    height: 50px;
+}
+#content{
+    float:right;
+    background:gray;
+    width:800px;
+    height: 800px;
+}
+
+#sidebar{
+    width:200px;
+    background-color:lightslategrey;
+    float: left;
+}
+#sidebar_title{
+    background: white;
+    color:black;
+    font-size: 22px;
+    font-family:arial;
+    padding:10px;
+    text-align: center;
+}
+#cats{
+    padding: 0;
+    text-align: center;
+}
+#cats li{
+    list-style: none;
+    display: block;
+    margin: 5px; 
+    
+}
+#cats a{
+    color:white;
+    text-align:center;
+    padding: 8px;
+    font-size: 20px;
+    margin: 5px;
+    font-family: comic Sans MS;
+    text-decoration: none;
+    
+}
+#cats a:hover{
+    color:orange;
+    font-weight: bolder;
+    text-decoration: underline;
+    margin: 10px; 
+}
+
+#products_box{
+    width:780px;
+    text-align: center;
+    margin-left: 30px;
+    margin-bottom: 10px; 
+}
+#single_product {
+    float: left;
+    margin-right: 20px;
+    padding: 10px; 
+}
+#single_product img{
+    border: 2px solid black; 
+    height: 200px;
+    width: 200px; 
+}
+
+#shopping_cart{
+    width:800px;
+    height: 50px; 
+    background:rgb(43,0,0); 
+    color: white;
+    
+}
+#shopping_cart span{
+    float: right;
+    font-size: 18px;
+    padding: 5px;
+    line-height: 40px;
+}
+table tr td a{
+    text-decoration: none; 
+}
+#footer{
+    width:1000px;
+    height: 100px;
+    clear: both;
+    background:black;
+}
