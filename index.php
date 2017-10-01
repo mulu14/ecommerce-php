@@ -24,7 +24,7 @@ include 'function/function.php';
                         <li><a href="index.php">Home</a></li>
                         <li><a href="allproduct.php">Product</a></li>
                         <li><a href="#">Account</a></li><li>
-                        <li><a href="#">Sign up</a></li>
+                        <li><a href="customer/customer_register.php">Sign in</a></li>
                         <li><a href="#">Shopping cart</a></li>
                         <li><a href="#">contact</a></li>
                     </ul>
@@ -42,8 +42,19 @@ include 'function/function.php';
                       
                     <div id="shopping_cart" >
                         <span>Welcome to page! <b style="color:red"> Shopping Cart </b>Total Items:<?php total_item()?> Total Price:<?php total_price()?>  </b><a href="cart.php"> Go to Cart</a>
+                         <?php 
+                            if(!isset($_SESSION['customer_email'])){
+                                echo "<a href='checkout.php'> Login</a>";
+                            }
+                            else{
+                                echo "<a href='logout.php'> Logout </a>"; 
+                            }
+
+                        ?>
                         </span>  
                     </div>
+                    
+                   
                      <?php cart();?>
                     <div id="products_box">
                      

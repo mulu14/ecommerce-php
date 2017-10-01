@@ -5,7 +5,7 @@ include '../function/function.php';
 <html>
     <head>
         <title> Online Market </title>
-        <link rel="stylesheet" href="style/style.css" media ="all">
+        <link rel="stylesheet" href="../style/style.css" media ="all">
     </head>
     
     
@@ -21,8 +21,8 @@ include '../function/function.php';
                 <!--  menu  -->
                 <div class="menubar">
                     <ul id="menu">
-                        <li><a href="index.php">Home</a></li>
-                        <li><a href="allproduct.php">Product</a></li>
+                        <li><a href="../index.php">Home</a></li>
+                        <li><a href="../allproduct.php">Product</a></li>
                         <li><a href="#">Account</a></li><li>
                         <li><a href="#">Sign up</a></li>
                         <li><a href="#">Shopping cart</a></li>

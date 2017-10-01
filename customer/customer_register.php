@@ -146,7 +146,7 @@ if(isset($_POST['register'])){
     $c_address = $_POST['c_address'];
     
     move_uploaded_file($c_image_temp, "user_picture/$c_image");
-    $insert_customer = "insert into customers (customer_ip, customer_name, customer_pass, customer_email, customer_country,"
+    $insert_customer = "insert into customers (customer_ip, customer_name, customer_email, customer_pass, customer_country,"
             . " customer_city, customer_contact, customer_image, customer_address)"
             . " values('$ip', '$c_name', '$c_email', '$c_password', '$c_country', '$c_city', '$c_contact', '$c_image', '$c_address')";
     
@@ -158,14 +158,14 @@ if(isset($_POST['register'])){
     if($count_row == 0){
       $_SESSION['customer_email'] = $c_email;
       //echo "<script> alert('Resisteration sucessful Thanks!') </script>";  
-      header('location:myaccount.php');
+      header('Location: myaccount.php');
      
     }
     
      else{
       $_SESSION['customer_email'] = $c_email; 
       echo "<script> alert('Resisteration sucessful Thanks!') </script>";  
-       header('location: ../checkout.php');
+       header('Location: ../checkout.php');
       }
     
      
