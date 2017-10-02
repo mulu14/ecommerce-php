@@ -1,6 +1,7 @@
 <!DOCTYPE >
 <?php 
 include 'function/function.php';
+session_start(); 
 ?>
 <html>
     <head>
@@ -41,13 +42,26 @@ include 'function/function.php';
                 <div id="content">
                       
                     <div id="shopping_cart" >
-                        <span>Welcome to page! <b style="color:red"> Shopping Cart </b>Total Items:<?php total_item()?> Total Price:<?php total_price()?>  </b><a href="cart.php"> Go to Cart</a>
+                      
+                        
+                        <span>
+                              <?php
+                                 if(isset($_SESSION['firstname'])){
+                                        echo "<b> Welcome: </b>" . $_SESSION['firstname']." <b> your </b>";
+                                   }
+                                   else{
+                                       echo "<b> Welcome Guest:  </b>"; 
+                         
+                                 }
+                        
+                               ?>      
+                        <b style="color:red"> Shopping Cart </b>Total Items:<?php total_item()?> Total Price:<?php total_price()?>  </b><a href="cart.php"> Go to Cart</a>
                          <?php 
                             if(!isset($_SESSION['customer_email'])){
                                 echo "<a href='checkout.php'> Login</a>";
                             }
                             else{
-                                echo "<a href='logout.php'> Logout </a>"; 
+                                echo "<a href='function/logout.php'> Logout </a>"; 
                             }
 
                         ?>

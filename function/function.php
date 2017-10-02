@@ -189,7 +189,7 @@ function getBrands(){
        
        if(isset($_GET['brand'])){
           $brand_id = $_GET['brand'];
-                 global $mysqli; 
+                global $mysqli; 
                 $get_brand_pro = "SELECT * FROM products where product_brand ='$brand_id'"; 
                 $result = $mysqli ->query($get_brand_pro);
                 $row_cnt = $result ->num_rows; 

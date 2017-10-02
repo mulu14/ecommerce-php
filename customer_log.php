@@ -2,6 +2,7 @@
 <?php
 
 include 'connect/connect.php';
+session_start(); 
 
 ?>
 
@@ -51,6 +52,10 @@ if(isset($_POST['login'])){
     $select_from_customer = "SELECT * FROM customers where customer_email='$c_email' AND customer_pass='$c_pass' ";
     
     $check_customer = $mysqli ->query($select_from_customer); 
+    while($row = $check_customer -> fetch_assoc()){
+        $_SESSION['firstname'] = $row['customer_name']; 
+        
+    }
    
     if( $check_customer -> num_rows == 0){
         echo "<script> alert('email or password incorrect, please try again') </script>";
@@ -63,14 +68,14 @@ if(isset($_POST['login'])){
         if($check_customer -> num_rows > 0 AND $count_row == 0){
             $_SESSION['customer_email'] = $c_email;
             echo "<script> 'You logged in sucessful, Thanks!' </script>"; 
-             header('Location: checkout.php');
+             header('Location: customer/myaccount.php'); 
            
         }
         else{
             $_SESSION['customer_email'] = $c_email;
             echo "<script> 'You logged in sucessful, Thanks!' </script>"; 
            
-            header('Location: customer/myaccount.php'); 
+            header('Location: checkout.php');
             
         }
     }

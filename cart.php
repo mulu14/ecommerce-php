@@ -42,7 +42,17 @@ session_start();
                 <div id="content">
                       
                     <div id="shopping_cart" >
-                        <span>Welcome to page! <b style="color:red"> Shopping Cart </b>Total Items:<?php total_item()?> Total Price:<?php total_price()?>  </b><a href="cart.php"> Go to Cart</a>
+                        <span>Welcome to page! <b style="color:red"> Shopping Cart </b>Total Items:<?php total_item()?> Total Price:<?php total_price()?>  </b><a href="index.php">Back to shop</a>
+                        
+                             <?php 
+                            if(!isset($_SESSION['customer_email'])){
+                                echo "<a href='checkout.php'> Login</a>";
+                            }
+                            else{
+                                echo "<a href='function/logout.php'> Logout </a>"; 
+                            }
+
+                        ?>
                         </span>  
                     </div>
                     <div id="products_box">
@@ -79,7 +89,7 @@ session_start();
                                     <td ><?php echo $product_title;?><br>
                                         <img src="function/product_images/<?php echo $product_image;?>" width="60" height="60"> 
                                     </td>
-                                    <td><input type="text" size="4" name="qty" value="<?php echo $_SESSION['qty']; ?>"></td>
+                                    <td><input type="number" size="4" name="qty" value="<?php echo $_SESSION['qty']; ?>"></td>
                                     <?php 
                                     global $mysqli; 
                                     if(isset($_POST['update_cart'])){
