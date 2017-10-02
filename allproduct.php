@@ -23,9 +23,9 @@ include 'function/function.php';
                     <ul id="menu">
                         <li><a href="index.php">Home</a></li>
                         <li><a href="allproduct.php">Product</a></li>
-                        <li><a href="#">Account</a></li><li>
-                        <li><a href="#">Sign up</a></li>
-                        <li><a href="#">Shopping cart</a></li>
+                        <li><a href="customer/myaccount.php">Account</a></li><li>
+                        <li><a href="customer/customer_register.php">Sign up</a></li>
+                        <li><a href="cart.php">Shopping cart</a></li>
                         <li><a href="#">contact</a></li>
                     </ul>
                     <div id="form">

@@ -24,9 +24,9 @@ session_start();
                     <ul id="menu">
                         <li><a href="index.php">Home</a></li>
                         <li><a href="allproduct.php">Product</a></li>
-                        <li><a href="#">Account</a></li><li>
+                        <li><a href="customer/myaccount.php">Account</a></li><li>
                         <li><a href="customer/customer_register.php">Sign in</a></li>
-                        <li><a href="#">Shopping cart</a></li>
+                        <li><a href="cart">Shopping cart</a></li>
                         <li><a href="#">contact</a></li>
                     </ul>
                     <div id="form">
@@ -47,7 +47,7 @@ session_start();
                         <span>
                               <?php
                                  if(isset($_SESSION['firstname'])){
-                                        echo "<b> Welcome: </b>" . $_SESSION['firstname']." <b> your </b>";
+                                        echo "<b> Welcome: </b>" . $_SESSION['firstname']." <b> your: </b>";
                                    }
                                    else{
                                        echo "<b> Welcome Guest:  </b>"; 

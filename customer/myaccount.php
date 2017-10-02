@@ -1,6 +1,8 @@
 <!DOCTYPE >
 <?php 
 include '../function/function.php';
+include '../connect/connect.php'; 
+session_start();
 ?>
 <html>
     <head>
@@ -23,9 +25,9 @@ include '../function/function.php';
                     <ul id="menu">
                         <li><a href="../index.php">Home</a></li>
                         <li><a href="../allproduct.php">Product</a></li>
-                        <li><a href="#">Account</a></li><li>
-                        <li><a href="#">Sign up</a></li>
-                        <li><a href="#">Shopping cart</a></li>
+                        <li><a href="myaccount.php">Account</a></li><li>
+                        <li><a href="customer_register.php">Sign up</a></li>
+                        <li><a href="../cart.php">Shopping cart</a></li>
                         <li><a href="#">contact</a></li>
                     </ul>
                     <div id="form">
@@ -41,32 +43,85 @@ include '../function/function.php';
                 <div id="content">
                       
                     <div id="shopping_cart" >
-                        <span>Welcome to page! <b style="color:red"> Shopping Cart </b>Total Items:<?php total_item()?> Total Price:<?php total_price()?>  </b><a href="cart.php"> Go to Cart</a>
+                        <span>
+                             <?php
+                                 if(isset($_SESSION['firstname'])){
+                                        echo "<b> Welcome: </b>" . $_SESSION['firstname']." <b> your: </b>";
+                                   }
+                        
+                               ?>  
+                            
+                            
+                            <b style="color:red"> Shopping Cart </b>Total Items:<?php total_item()?> Total Price:<?php total_price()?>  </b><a href="../cart.php"> Go to Cart</a>
+                       
+                                  <?php 
+                                        if(!isset($_SESSION['customer_email'])){
+                                            echo "<a href='../checkout.php'> Login</a>";
+                                        }
+                                        else{
+                                            echo "<a href='../function/logout.php'> Logout </a>"; 
+                                        }
+
+                                    ?>
+                        
+                        
                         </span>  
                     </div>
-                     <?php cart();?>
-                    <div id="products_box">
                      
-                       <?php getProd();?>
-                       <?php getProd_cat();?>
-                       <?php getProd_Brand();?>
+                    <div id="products_box">
+                       
+                     <?php 
+                     if(!isset($_GET['my_orders'])){
+                         if(!isset($_GET['edit_account'])){
+                             if(!isset($_GET['change_password'])){
+                                 if(!isset($_GET['delete_account'])){
+                                     echo "<h2>". "Welcome:". $_SESSION['firstname'] ."</h2>";
+                                     echo "<b> You can see your order by clicking this <a href='myaccount.php?my_orders'> Link </a>";
+                                 }
+                             }
+                         }
+                         
+                     }
+                     
+                     
+                     ?>
+                        
+                     <?php
+                     if(isset($_GET['edit_account'])){
+                         include 'edit_account.php'; 
+                     }
+                     
+                     ?>
                     </div>
                     
                 </div> 
               <div id="sidebar">
-                  <div id="sidebar_title">Categories</div>
+                  <div id="sidebar_title">My Account:</div>
                   
                   <ul id="cats">
-                        <?php  getCats();?> 
+                      <li>
+                      <?php
+                 
+                      global $mysqli; 
+                            $user = $_SESSION['customer_email'];
+
+                            $get_img =  "SELECT *FROM customers where customer_email='$user'"; 
+                            $run_query = $mysqli ->query($get_img); 
+                            $row = $run_query->fetch_assoc();
+                            $c_image = $row['customer_image']; 
+ 
+                            echo "<img src='user_picture/$c_image' width='150' height='150'";
+                            
+                         
+                      ?>
+                      </li>
+                      <li> <a href="myaccount.php?my_orders"> My Orders</a></li>
+                      <li ><a href="myaccount.php?edit_account">Edit Account</a></li>
+                      <li> <a href="myaccount.php?change_password">Change password</a></li>
+                      <li ><a href="myaccount.php?delete_account">Delete Account</a></li>
                   </ul>
                   
-                   <div id="sidebar">
-                 <div id="sidebar_title">Brands</div>
-                  
-                  <ul id="cats">
-                       <?php  getBrands();?> 
-                  </ul>
-              </div>
+ 
               </div>
              
             </div>
