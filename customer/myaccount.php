@@ -91,9 +91,11 @@ session_start();
                          include 'edit_account.php'; 
                      }
                      if(isset($_GET['change_password'])){
-                         include('changepassword.php'); 
+                         include 'changepassword.php' ; 
                      }
-                     
+                     if(isset($_GET['delete_account'])){
+                         include 'delete.php';
+                     }
                      ?>
                     </div>
                     
