@@ -90,6 +90,9 @@ session_start();
                      if(isset($_GET['edit_account'])){
                          include 'edit_account.php'; 
                      }
+                     if(isset($_GET['change_password'])){
+                         include('changepassword.php'); 
+                     }
                      
                      ?>
                     </div>
